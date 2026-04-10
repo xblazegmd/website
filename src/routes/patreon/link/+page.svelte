@@ -22,7 +22,8 @@
         url.search = new URLSearchParams({
             response_type: "code",
             client_id: "UWwo4hBdOLdsP5835k_rYZD3rl3JYOiKYXUYM4OFm9L7RVmEGiZV1whiDvxRB93r",
-            redirect_uri: "https://xblazegmd.vercel.app/patreon/link/callback"
+            redirect_uri: "https://xblazegmd.vercel.app/patreon/link/callback",
+            scopes: "identity identity.memberships"
         }).toString();
 
         window.open(url.href);
