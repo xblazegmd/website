@@ -40,4 +40,10 @@
         right: 0;
         transform: scaleX(-1);
     }
+
+    @media (max-width: 768px) {
+        .corner {
+            width: 110px;
+        }
+    }
 </style>

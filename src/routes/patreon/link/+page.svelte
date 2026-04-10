@@ -3,10 +3,24 @@
     import BlueBG from "$lib/BlueBG.svelte";
     import Corners from "$lib/Corners.svelte";
 
+    import { onMount } from "svelte";
     import { page } from "$app/state";
     import { SvelteURL } from "svelte/reactivity";
     import { goto } from "$app/navigation";
     import { resolve } from "$app/paths";
+
+    let isMobile = $state(false);
+    let isTight = $state(false);
+
+    onMount(() => {
+        isMobile = window.innerWidth < 768;
+        isTight = window.innerWidth < 870;
+
+        window.addEventListener("resize", () => {
+            isMobile = window.innerWidth < 768;
+            isTight = window.innerWidth < 870;
+        })
+    });
 
     let { data, form } = $props();
 
@@ -44,14 +58,14 @@
     <Corners />
     {#if form?.success}
         <!-- Linked Patreon and GD -->
-        <BrownBox width=60 height=35>
+        <BrownBox width={isMobile ? 53 : 60} height=35>
             <h2>All done!</h2>
             <p>Now open up <span class="cj">Geometry Dash</span>, load your profile, and your <span class="cy">badge</span> should be there!</p>
             <p>Make sure <span class="cg">"Xblaze's Geode API"</span> is installed</p>
         </BrownBox>
     {:else if data?.linkedPatreon}
         <!-- Linked Patreon, log into GD -->
-        <BrownBox width=100 height=60>
+        <BrownBox width={isMobile ? 54 : isTight ? 80 : 100} height={isMobile ? 65 : 60}>
             <h2 class="log-in-label">Log In</h2>
 
             <form method="POST" class="login-form">
@@ -81,7 +95,7 @@
         </BrownBox>
     {:else}
         <!-- Link Patreon -->
-        <BrownBox width=70 height=50>
+        <BrownBox width={isMobile ? 53 : 70} height=50>
             <h2>Thank you for supporting me!</h2>
             <div class="desc-container">
                 <p>As a sign of <span class="cg">appreciation</span>, you will earn a <span class="cy">{badgeTier} badge</span> in-game showing that YOU are a <span class="cj">supporter</span>!</p>
@@ -122,5 +136,11 @@
 
     .desc-container {
         margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .log-in-label {
+            margin-bottom: 35px;
+        }
     }
 </style>

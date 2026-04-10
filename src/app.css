@@ -121,3 +121,9 @@ button:active {
 .co {
     color: #FF5A4B;
 }
+
+@media (max-width: 768px) {
+    .gd-input {
+        width: 49vh;
+    }
+}
