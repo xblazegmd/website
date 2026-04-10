@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>%sveltekit.status% %sveltekit.error.message%</title>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+        <style>
+            html {
+                font-family: Arial, Helvetica, sans-serif;
+                color: #0065FD;
+            }
+
+            body {
+                margin: 0;
+                overflow: hidden;
+                background-color: #000000;
+            }
+
+            h1 {
+                font-size: 3rem;
+                margin: 5px;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin: 5px;
+            }
+
+            .center {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <h1>%sveltekit.status% %sveltekit.error.message%</h1>
+            <h3>This error's so bad even the GD styling can't load</h3>
+        </div>
+    </body>
+</html>
