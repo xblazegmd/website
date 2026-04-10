@@ -12,6 +12,7 @@ export async function GET({ url }) {
         .from("members")
         .select("patreon_access_token")
         .eq("account_id", Number(accountID));
+    console.log(data[0]);
 
     if (error) {
         throw httpError(500, `Could not fetch info from database: ${error.message}`);
