@@ -17,8 +17,8 @@ export async function GET({ url }) {
         throw httpError(500, `Could not fetch info from database: ${error.message}`);
     }
 
-    const reqUrl = new URL("https://www.patreon.com/api/oauth2/v2/identity?include=memberships.currently_entitled_tiers,memberships.campaign?"
-        + encodeURIComponent("fields[user]") + "=patron_status?" + encodeURIComponent("fields[tier]") + "=title"
+    const reqUrl = new URL("https://www.patreon.com/api/oauth2/v2/identity?include=memberships.currently_entitled_tiers,memberships.campaign&"
+        + encodeURIComponent("fields[user]") + "=patron_status&" + encodeURIComponent("fields[tier]") + "=title"
     );
 
     const req = await fetch(reqUrl.href, {
