@@ -32,6 +32,6 @@ export async function GET({ url }) {
     }
 
     const stuff = await req.json();
-    console.log(stuff.toString());
+    console.log(JSON.stringify(stuff));
     return json({ ok: true });
 }
