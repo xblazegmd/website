@@ -5,7 +5,7 @@ import { PATREON_CLIENT_ID, PATREON_CLIENT_SECRET } from "$env/static/private";
 export async function GET({ url, cookies }) {
     const code = url.searchParams.get("code");
     if (!code) {
-        throw redirect(302, "/");
+        throw redirect(302, "/patreon/link");
     }
 
     const req = await fetch("https://www.patreon.com/api/oauth2/token", {

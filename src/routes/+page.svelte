@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import BrownBox from "$lib/BrownBox.svelte";
     import BlueBG from "$lib/BlueBG.svelte";
     import Corners from "$lib/Corners.svelte"
