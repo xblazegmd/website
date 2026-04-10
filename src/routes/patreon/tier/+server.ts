@@ -17,7 +17,7 @@ export async function GET({ url }) {
         throw httpError(500, `Could not fetch info from database: ${error.message}`);
     }
 
-    const reqUrl = new URL("https://www.patreon.com/api/oauth2/v2/identity?include=memberships.currently_entitled_tiers,memberships.campaign&"
+    const reqUrl = new URL("https://www.patreon.com/api/oauth2/v2/identity?include=memberships.currently_entitled_tiers&"
         + encodeURIComponent("fields[member]") + "=patron_status&" + encodeURIComponent("fields[tier]") + "=title"
     );
 
@@ -31,7 +31,13 @@ export async function GET({ url }) {
         throw httpError(500, `${req.status}`)
     }
 
-    const stuff = await req.json();
-    console.log(JSON.stringify(stuff));
-    return json({ ok: true });
+    const jsonRes = await req.json();
+    console.log(JSON.stringify(jsonRes));
+
+    // bro hasn't even joined :sob:
+    if (jsonRes["data"]["relationships"]["memberships"]["data"].lenght === 0) {
+        return json({ tier: 0 });
+    }
+
+    return json({ tier: 1 });
 }
