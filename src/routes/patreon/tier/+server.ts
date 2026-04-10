@@ -2,7 +2,6 @@ import { error as httpError, json } from "@sveltejs/kit";
 
 import { supabase } from "$lib/membersDatabase.js";
 
-// This code sucks ;-;
 export async function GET({ url }) {
     const accountID = url.searchParams.get("accountID");
     if (!accountID) {
