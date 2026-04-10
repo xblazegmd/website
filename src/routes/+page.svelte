@@ -1,0 +1,44 @@
+<script>
+    import BrownBox from "$lib/BrownBox.svelte";
+    import BlueBG from "$lib/BlueBG.svelte";
+    import Corners from "$lib/Corners.svelte"
+
+    const possibleCaptions = [
+        "It's cooking...",
+        "Have you heard about patience?",
+        "No website for you",
+        "Wonderful",
+        "God bless you <3",
+        "I can't think of any good captions",
+        "Website releases in ...?",
+        "New daily in 00:00:00",
+        "2.3 when",
+        "Who is more lazy, Xblaze or RobTop?",
+        "Vortrox",
+        "Kingsammelot",
+        "EVW",
+        "sixSevcon",
+        "meow :3",
+        "woof",
+        "Do you have a life?",
+        "I guessed so...",
+        "Annie are you ok? So, Annie are you ok? Are you ok Annie?",
+        "GET OUT OF MY HEAD",
+        "STOP PRESSURIN' ME",
+        "REMEMBER",
+        "It is done",
+        "sike",
+        "*insert caption here*",
+        "I can do all things through Christ who strengthens me"
+    ];
+
+    let caption = possibleCaptions[Math.floor(Math.random() * possibleCaptions.length)];
+</script>
+
+<BlueBG>
+    <Corners />
+    <BrownBox width=50 height=30>
+        <h1>Coming Soon!</h1>
+        <p>{caption}</p>
+    </BrownBox>
+</BlueBG>

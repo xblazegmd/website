@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Pusab";
+    src: url("$lib/fonts/Pusab.ttf")
+}
+
+@font-face {
+    font-family: "Aller";
+    src: url("$lib/fonts/Aller.ttf");
+}
+
+html {
+    font-family: "Pusab";
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 4rem;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, .2);
+    -webkit-text-stroke-width: 0.4px;
+    margin: 20px;
+}
+
+h2 {
+    font-size: 3rem;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, .2);
+    -webkit-text-stroke-width: 0.4px;
+    margin: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .3);
+    -webkit-text-stroke-width: 0.45px;
+    margin: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    font-family: "Aller";
+    margin: 5px;
+}
+
+label {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .3);
+    -webkit-text-stroke-width: 0.9px;
+}
+
+button {
+    font-size: 2.1rem;
+    font-family: "Pusab";
+    color: white;
+    background-color: #7ade2d;
+    -webkit-text-stroke: 1.2px black;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .2);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, .2);
+    border-width: 2.5vh;
+    border-style: solid;
+    border-radius: 1.2vh;
+    border-image: url("$lib/assets/GJ_button_01.png") 30% round;
+    transition: transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(1.1);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.gd-input {
+    border-style: none;
+    border-radius: 15px;
+    width: 70vh;
+    padding: 20px;
+    margin-top: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, .3);
+    font-size: 2.3rem;
+    font-family: "Pusab";
+    text-align: center;
+    -webkit-text-stroke-width: 1.3px;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .3);
+}
+
+.red-btn {
+    border-image: url("$lib/assets/GJ_button_06.png") 30% round;
+    background-color: #dd2d30;
+}
+
+.cg {
+    color: #40e348;
+}
+
+.cy {
+    color: #ffff00;
+}
+
+.cj {
+    color: #32c8ff;
+}
+
+.cl {
+    color: #60ABEF;
+}
+
+.cr {
+    color: #FF5A5A;
+}
+
+.co {
+    color: #FF5A4B;
+}
