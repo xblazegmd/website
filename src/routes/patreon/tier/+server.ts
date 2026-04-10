@@ -2,6 +2,7 @@ import { error as httpError, json } from "@sveltejs/kit";
 
 import { supabase } from "$lib/membersDatabase.js";
 
+// This code sucks ;-;
 export async function GET({ url }) {
     const accountID = url.searchParams.get("accountID");
     if (!accountID) {
@@ -39,5 +40,21 @@ export async function GET({ url }) {
         return json({ tier: 0 });
     }
 
-    return json({ tier: 1 });
+    const patronStatus = jsonRes["included"][0]["attributes"]["patron_status"];
+
+    if (!patronStatus || patronStatus !== "active_patron") {
+        return json({ tier: 0 });
+    }
+
+    const tierTitle = jsonRes["included"][1]["attributes"]["title"];
+
+    if (tierTitle === "Free") {
+        return json({ tier: 0 });
+    } else if (tierTitle === "Plain Normal Supporter Tier™") {
+        return json({ tier: 1 });
+    } else if (tierTitle === "Amazing Beautiful Crab Tier™") {
+        return json({ tier: 2 });
+    }
+
+    return json({ tier: 0 });
 }
