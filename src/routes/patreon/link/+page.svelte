@@ -100,6 +100,7 @@
             <div class="desc-container">
                 <p>As a sign of <span class="cg">appreciation</span>, you will earn a <span class="cy">{badgeTier} badge</span> in-game showing that YOU are a <span class="cj">supporter</span>!</p>
                 <p>Please link your <span class="co">Patreon account</span> with your <span class="cl">Geometry Dash account</span> in order to recieve the <span class="cy">badge</span></p>
+                <p class="disc">Your Geometry Dash Account ID and Patreon access token will be stored in a database after linking. The token only has read access on your memberships so don't worry</p>
             </div>
 
             <button onclick={patreonOAuth}>Link Patreon</button>
@@ -142,5 +143,10 @@
         .log-in-label {
             margin-bottom: 35px;
         }
+    }
+
+    .disc {
+        font-size: 0.9rem;
+        color: gray;
     }
 </style>
