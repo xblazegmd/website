@@ -14,14 +14,15 @@ export async function GET({ url }) {
     const { data, error } = await supabase
         .from("members")
         .select("patreon_access_token")
-        .eq("account_id", Number(accountID));
+        .eq("account_id", Number(accountID))
+        .maybeSingle();
 
     if (error) {
         console.error(`Could not fetch info from database: ${error.message}`);
         throw httpError(500, `Could not fetch info from database: ${error.message}`);
     }
 
-    if (!data[0].patreon_access_token) {
+    if (!data) {
         console.error(`Couldn't find accountID '${accountID}' in database`);
         throw httpError(404, `Couldn't find accountID '${accountID}' in database`);
     }
@@ -34,7 +35,7 @@ export async function GET({ url }) {
     );
 
     const req = await fetch(reqUrl.href, {
-        headers: { "Authorization": `Bearer ${data[0].patreon_access_token}` }
+        headers: { "Authorization": `Bearer ${data.patreon_access_token}` }
     });
 
     if (!req.ok) {
