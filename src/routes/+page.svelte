@@ -33,7 +33,8 @@
         "Made in Colombia™",
         "SevChipz confirmed??????",
         "Hatsune Mintku ftw",
-        "Sevconae Teto"
+        "Sevconae Teto",
+        "If it doesn't look like a duck, and it doesn't sound like a duck, it's prolly not a duck"
     ];
 
     let caption = possibleCaptions[Math.floor(Math.random() * possibleCaptions.length)];
