@@ -9,6 +9,8 @@ export async function GET({ url }) {
         throw httpError(400, "Missing parameter: 'accountID'");
     }
 
+    console.log(`Account ID: ${accountID}`);
+
     console.log("Fetching Patreon access token from database...");
 
     const { data, error } = await supabase
