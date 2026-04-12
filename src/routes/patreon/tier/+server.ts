@@ -21,6 +21,11 @@ export async function GET({ url }) {
         throw httpError(500, `Could not fetch info from database: ${error.message}`);
     }
 
+    if (!data) {
+        console.error(`Couldn't find accountID '${accountID}' in database`);
+        throw httpError(404, `Couldn't find accountID '${accountID}' in database`);
+    }
+
     console.log("Fetched Patreon access token from database");
     console.log("Fetching Patreon tier info...");
 
