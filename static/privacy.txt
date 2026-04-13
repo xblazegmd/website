@@ -1,0 +1,8 @@
+Privacy Policy
+-----------------------------
+
+By linking your Patreon account on "xblazegmd.vercel.app/patreon/link", your Patreon access token and Geometry Dash Account ID both get stored in a database, so the supporter badge can be shown
+
+If you don't like this, you can always unlink your account by going to the settings of the "Xblaze's Geode API" mod and unlinking your Patreon account there
+
+Anyways, cya, God bless you <3
