@@ -12,7 +12,7 @@
     import { onMount } from "svelte";
 
     let progress = 25;
-    let max = 1748;
+    let max = 1779;
 
     let showPopup = $state(false);
 
