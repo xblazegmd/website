@@ -1,9 +1,12 @@
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { URLSearchParams } from 'url';
 
 import { supabase } from '$lib/membersDatabase.js';
 
 export function load({ cookies }) {
+    throw redirect(301, "https://xblaze.netlify.app/patreon/link");
+
+    // This is unreachable cuz of the redirect
     const accessToken = cookies.get("patreonAccessToken");
     if (accessToken) {
         return { linkedPatreon: true }

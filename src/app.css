@@ -47,6 +47,8 @@ p {
 }
 
 a {
+    font-size: 1.2rem;
+    font-family: "Aller";
     color: #86dfff;
 }
 
@@ -127,7 +129,7 @@ button:active {
 }
 
 .co {
-    color: #FF5A4B;
+    color: #ff8d4b;
 }
 
 @media (max-width: 768px) {

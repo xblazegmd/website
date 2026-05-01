@@ -45,5 +45,5 @@ export async function GET({ url, cookies }) {
         maxAge: 60 * 10
     });
 
-    throw redirect(302, "/patreon/link");
+    throw redirect(302, "https://xblaze.netlify.app/patreon/link");
 }
