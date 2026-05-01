@@ -32,6 +32,7 @@
 	"dependencies": {
 		"@libsql/client": "^0.17.2",
 		"@supabase/supabase-js": "^2.103.0",
+		"@sveltejs/adapter-netlify": "^6.0.4",
 		"@tursodatabase/serverless": "^1.0.0"
 	}
 }
