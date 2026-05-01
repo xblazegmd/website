@@ -47,7 +47,7 @@
 <BlueBG>
     <Corners />
     <BrownBox width=50 height=30>
-        <h1>(possibly) Coming Soon!</h1>
+        <h1>Coming Soon!</h1>
         <p>{caption}</p>
     </BrownBox>
 </BlueBG>
