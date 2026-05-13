@@ -79,6 +79,18 @@ button:active {
     transform: scale(1.1);
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    font-family: "Aller";
+}
+
+th {
+    font-size: 1.3rem;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -128,6 +140,11 @@ button:active {
 
 .co {
     color: #FF5A4B;
+}
+
+/* Not a vanilla gd color tag but I added this anyways */
+.cx {
+    color: #a6a6a6;
 }
 
 @media (max-width: 768px) {

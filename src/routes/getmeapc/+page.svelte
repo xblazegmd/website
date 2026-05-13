@@ -11,10 +11,11 @@
 
     import { onMount } from "svelte";
 
-    let progress = 25;
+    let progress = 0;
     let max = 1779;
 
-    let showPopup = $state(false);
+    let showCurrencyPopup = $state(false);
+    let showActivityPopup = $state(false);
 
     let rates: Record<string, number> = {};
     let loaded = $state(false);
@@ -35,6 +36,21 @@
         const converted = Math.round(value * rates[currency]);
         return new Intl.NumberFormat("en-US").format(converted);
     }
+
+    const activity: [number, string, string, string][] = [
+        [0, "25/04/26", "Made this page", "+25"],
+        [1, "12/05/26", "My dad took my money away 😭", "-25"]
+    ];
+
+    function deficitOrSurplus(change: string) {
+        if (change.startsWith("+")) {
+            return "cg";
+        } else if (change.startsWith("-")) {
+            return "cr";
+        } else {
+            return "cx";
+        }
+    }
 </script>
 
 <svelte:head>
@@ -42,7 +58,7 @@
 </svelte:head>
 
 <BlueBG>
-    <Popup width=69 height=40 bind:flag={showPopup}>
+    <Popup width=69 height=40 bind:flag={showCurrencyPopup}>
         {#if loaded}
             <img src={otherCurrencies} alt="Other Currencies" class="other-currencies-title" />
 
@@ -54,11 +70,32 @@
                 <p>RUB: <span class="cy">₽{convert("RUB", progress)}</span> / <span class="cj">₽{convert("RUB", max)}</span></p>
             </div>
 
-            <button onclick={() => {showPopup = false}}>OK</button>
+            <button onclick={() => {showCurrencyPopup = false}}>OK</button>
         {:else}
             <Loading size=50 />
             <p>If you see this then the currency rates are either taking ages to load, or they failed to load /Xblaze</p>
         {/if}
+    </Popup>
+
+    <Popup width=69 height=40 bind:flag={showActivityPopup}>
+        <table>
+            <thead>
+                <tr>
+                    <th><span class="cj">Date (dd/mm/yy)</span></th>
+                    <th><span class="cj">Note</span></th>
+                    <th><span class="cj">Change</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                {#each activity as update (update[0])}
+                    <tr>
+                        <td><span class="cy">{update[1]}</span></td>
+                        <td>{update[2]}</td>
+                        <td><span class={deficitOrSurplus(update[3])}>{update[3]}</span></td>
+                    </tr>
+                {/each}
+            </tbody>
+        </table>
     </Popup>
 
     <Corners />
@@ -74,11 +111,14 @@
 
         <!-- svelte-ignore a11y_invalid_attribute -->
         <p class="currency">
-            The following values are displayed in USD. To view<br />
-            other currencies click <a href="javascript:void(0)" onclick={(e) => {
+            <a href="javascript:void(0)" onclick={(e) => {
                 e.preventDefault();
-                showPopup = true;
-            }}>here</a>
+                showCurrencyPopup = true;
+            }}>Other currencies</a>
+            <a href="javascript:void(0)" onclick={(e) => {
+                e.preventDefault();
+                showActivityPopup = true;
+            }}>Activity logs</a>
         </p>
     </BrownBox>
 </BlueBG>
